@@ -5,15 +5,12 @@ screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("My Snake Game")
 
-squares = []
+starting_positions = [(0,0), (-20,0), (-40, 0)]
 
-for index in range(0, 4):
-    tim = Turtle("square")
-    x = index * -20
-    tim.setpos(x, 0)
-    tim.color('white')
-    squares.append(tim)
-
+for position in starting_positions:
+    segement = Turtle("square")
+    segement.color('white')
+    segement.goto(position)
 
 
 screen.exitonclick()
