@@ -4,11 +4,18 @@ from turtle import Screen
 from Snake import Snake
 from libs.screenSize import screenSize
 
-monitor_width = screenSize().width
+monitors = screenSize()
+if len(monitors) == 2:
+    startx = monitors[1].x
+else:
+    startx = monitors[0].x
+
+monitor_width = monitors[0].width
+
 print(f"monitor_width: {monitor_width}")
 
 screen = Screen()
-screen.setup(width=monitor_width - 40, height=600, startx=20, starty=20)
+screen.setup(width=monitor_width - 40, height=600, startx=startx, starty=20)
 screen.bgcolor("black")
 screen.title("My Snake Game")
 screen.tracer(0)
