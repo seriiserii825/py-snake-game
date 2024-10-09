@@ -22,6 +22,7 @@ class Snake:
             self.segments.append(segment)
 
     def move(self):
+        # set speed to 5
         for seg_num in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
