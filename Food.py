@@ -9,7 +9,7 @@ class Food(Turtle):
         self.monitor_height = monitor_height
         self.shape("circle")
         self.penup()
-        self.shapesize(stretch_wid=0.5,stretch_len=0.5)
+        self.shapesize(stretch_wid=1,stretch_len=1)
         self.color('orange')
         self.speed('fastest')
         self.refresh()
@@ -18,7 +18,7 @@ class Food(Turtle):
         x = self.monitor_width / 2
         x = round(x) - 300
         print(f"x: {x}")
-        y = self.monitor_width / 2
+        y = self.monitor_height / 2
         y = round(y) - 300
         print(f"y: {y}")
         random_x = random.randint(-x, x)
