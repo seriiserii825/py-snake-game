@@ -16,10 +16,10 @@ class Food(Turtle):
 
     def refresh(self):
         x = self.monitor_width / 2
-        x = round(x) - 300
+        x = round(x) - 400
         print(f"x: {x}")
         y = self.monitor_width / 2
-        y = round(y) - 300
+        y = round(y) - 400
         print(f"y: {y}")
         random_x = random.randint(-x, x)
         print(f"random_x: {random_x}")
