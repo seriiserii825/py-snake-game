@@ -2,6 +2,7 @@ import time
 from turtle import Screen
 
 from Food import Food
+from ScoreBoard import ScoreBoard
 from Snake import Snake
 from libs.screenSize import screenSize
 
@@ -12,7 +13,9 @@ else:
     startx = monitors[0].x
 
 monitor_width = monitors[0].width
+half_monitor_width = monitor_width / 2 - 40
 monitor_height = monitors[0].height
+half_monitor_height = monitor_height / 2 - 40
 
 print(f"monitor_width: {monitor_width}")
 
@@ -31,6 +34,8 @@ screen.onkey(snake.down, 'Down')
 screen.onkey(snake.left, 'Left')
 screen.onkey(snake.right, 'Right')
 
+scoreboard = ScoreBoard()
+
 game_is_on = True
 
 while game_is_on:
@@ -40,5 +45,9 @@ while game_is_on:
     if snake.head.distance(food) < 15:
         food.refresh()
         snake.grow()
+        scoreboard.increaseScore()
+    if snake.head.xcor() > half_monitor_width or snake.head.xcor() < -half_monitor_width or snake.head.ycor() > half_monitor_height or snake.head.ycor() < -half_monitor_height:
+        scoreboard.gameOver()
+        game_is_on = False
 
 screen.exitonclick()
