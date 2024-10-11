@@ -36,11 +36,18 @@ screen.onkey(snake.right, 'Right')
 
 scoreboard = ScoreBoard()
 
+def calculate_sleep_time(time_to_sleep):
+    if time_to_sleep == 0:
+        return 0.1
+    return 0.1 - (time_to_sleep / 100)
+
 game_is_on = True
 
 while game_is_on:
     screen.update()
-    time.sleep(0.2)
+    # sleep_time = 0.1
+    sleep_time = calculate_sleep_time(scoreboard.getScore())
+    time.sleep(sleep_time)
     snake.move()
     if snake.head.distance(food) < 15:
         food.refresh()
