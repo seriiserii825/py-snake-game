@@ -54,13 +54,13 @@ while game_is_on:
         snake.grow()
         scoreboard.increaseScore()
     if snake.head.xcor() > half_monitor_width or snake.head.xcor() < -half_monitor_width or snake.head.ycor() > half_monitor_height or snake.head.ycor() < -half_monitor_height:
-        scoreboard.gameOver()
-        game_is_on = False
+        scoreboard.reset()
+        snake.reset()
 
     #detect collision with tail
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
-            scoreboard.gameOver()
-            game_is_on = False
+            scoreboard.reset()
+            snake.reset()
 
 screen.exitonclick()
