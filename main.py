@@ -39,7 +39,7 @@ scoreboard = ScoreBoard()
 def calculate_sleep_time(time_to_sleep):
     if time_to_sleep == 0:
         return 0.1
-    return 0.1 - (time_to_sleep / 100)
+    return 0.1 - (time_to_sleep / 300)
 
 game_is_on = True
 
